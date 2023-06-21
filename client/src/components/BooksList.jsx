@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getApiData } from '../client';
 import { useLocation } from 'react-router-dom';
+import BookForm from './BookForm';
 
 function BooksList() {
   const [booksList, setBooksList] = useState([]);
@@ -21,7 +22,12 @@ function BooksList() {
     </li>
   ));
 
-  return <ul>{booksItems}</ul>;
+  return (
+    <>
+      <BookForm />
+      <ul>{booksItems}</ul>;
+    </>
+  );
 }
 
 export default BooksList;
