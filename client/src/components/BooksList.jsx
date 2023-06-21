@@ -11,15 +11,17 @@ function BooksList() {
     console.log(loacation.pathname);
   }, []);
 
-  return (
-    <>
-      {booksList.map((book) => (
-        <div key={book.id}>
-          <a href={`${location.pathname}/${book.id}`}>{book.title}</a>
-        </div>
-      ))}
-    </>
-  );
+  const booksItems = booksList.map((book) => (
+    <li key={book.id}>
+      <a href={`${location.pathname}/${book.id}`}>
+        <h2>{book.title}</h2>
+        <h3>{book.author}</h3>
+        <h3>{book.category}</h3>
+      </a>
+    </li>
+  ));
+
+  return <ul>{booksItems}</ul>;
 }
 
 export default BooksList;

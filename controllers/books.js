@@ -8,7 +8,9 @@ import { pool } from '../db.js';
 export const getAllBooks = async (req, res) => {
   try {
     console.log('get All Books');
-    const { rows, rowCount } = await pool.query('SELECT * FROM books;');
+    const { rows, rowCount } = await pool.query(
+      'SELECT id, title, author, category, cover_url FROM books;'
+    );
     res.status(200).json(rows);
   } catch (error) {
     console.log(error.message);
@@ -24,7 +26,12 @@ export const getAllBooks = async (req, res) => {
 export const getBook = async (req, res) => {
   try {
     console.log('getBook');
-    res.send(`here ist the book ${req.params.id}`);
+    const { rows, rowCount } = await pool.query(
+      'SELECT * FROM books WHERE id=$1',
+      [req.params.id]
+    );
+    console.log(rows);
+    res.status(200).json(rows[0]);
   } catch (error) {
     console.log(error.message);
     res.status(500).send('something went wrong');
