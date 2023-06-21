@@ -5,12 +5,14 @@ import Home from './components/Home';
 import BooksList from './components/BooksList';
 import Book from './components/Book';
 import CreateBook from './components/CreateBook';
+import Navigation from './components/Navigation';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      <Navigation />
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/books' element={<BooksList />}></Route>
