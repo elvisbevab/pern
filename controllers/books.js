@@ -7,3 +7,11 @@ export const getAllBooks = async (req, res) => {
     console.log(error);
   }
 };
+
+export const getBook = async (req, res) => {
+  try {
+    console.log('getBook');
+  } catch (error) {
+    console.log(error);
+  }
+};
