@@ -9,8 +9,7 @@ export const getAllBooks = async (req, res) => {
   try {
     console.log('get All Books');
     const { rows, rowCount } = await pool.query('SELECT * FROM books;');
-
-    res.status(201).json(rows);
+    res.status(200).json(rows);
   } catch (error) {
     console.log(error.message);
     res.status(500).send('something went wrong');
