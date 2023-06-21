@@ -47,14 +47,14 @@ export const createBook = async (req, res) => {
       description,
       category,
       cover_url,
-      publishedAt,
-      isActive,
+      publishedat,
+      isactive,
     } = req.body;
 
-    console.log(isActive);
+    console.log(author);
     const { rows } = await pool.query(
       'INSERT INTO books (title, author,description, category, cover_url,publishedAt,isActive) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;',
-      [title, author, description, category, cover_url, publishedAt, isActive]
+      [title, author, description, category, cover_url, publishedat, isactive]
     );
 
     res.status(201).json(rows[0]);

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { addBook } from '../client';
+import { useLocation } from 'react-router-dom';
 
 function BookForm() {
   const [formData, setFormData] = useState({
@@ -8,13 +10,32 @@ function BookForm() {
     description: '',
     category: '',
     cover_url: '',
-    publishedAt: '',
-    isActive: '',
+    publishedat: '',
+    isactive: false,
   });
+  const loacation = useLocation();
+
+  const handleChange = (event) => {
+    console.log(event.target);
+    if (event.target.id == 'isactive') {
+      const { id, checked } = event.target;
+      setFormData((prevFormData) => ({ ...prevFormData, [id]: checked }));
+    } else {
+      const { id, value } = event.target;
+      setFormData((prevFormData) => ({ ...prevFormData, [id]: value }));
+    }
+  };
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    console.log(formData);
+    addBook(loacation.pathname, formData);
+  };
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit} onChange={handleChange}>
         <Row>
           <Form.Group as={Col} md='4' controlId='title'>
             <Form.Label>Title</Form.Label>
@@ -67,9 +88,9 @@ function BookForm() {
           <Col>
             <Form.Check
               // prettier-ignore
-              type='switch'
-              id='custom-switch'
-              label='Check this switch'
+              type='checkbox'
+              id='isactive'
+              label='Is Active?'
             ></Form.Check>
           </Col>
           <Col>

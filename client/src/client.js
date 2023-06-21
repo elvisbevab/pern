@@ -15,3 +15,17 @@ export const getApiData = (path, setFunction) => {
       console.log(err);
     });
 };
+
+export const addBook = (path, bookData) => {
+  console.log('call addBook');
+  console.log(bookData);
+  axios
+    .post(API_URL + path, bookData)
+    .then((res) => {
+      console.log(res.data);
+      console.log('Book added');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
