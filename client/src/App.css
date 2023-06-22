@@ -1,0 +1,9 @@
+.book-list-img {
+  display: block;
+  height: 100%;
+  width: auto
+}
+
+.book-list-item {
+  height: 12rem;
+}
