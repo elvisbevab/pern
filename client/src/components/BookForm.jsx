@@ -34,9 +34,9 @@ function BookForm() {
   };
 
   return (
-    <Container>
+    <Container className='mt-3'>
       <Form onSubmit={handleSubmit} onChange={handleChange}>
-        <Row>
+        <Row className='py-3'>
           <Form.Group as={Col} md='4' controlId='title'>
             <Form.Label>Title</Form.Label>
             <Form.Control
@@ -58,7 +58,7 @@ function BookForm() {
           </Form.Group>
         </Row>
 
-        <Row>
+        <Row className='py-3'>
           <Form.Group as={Col} md='4' controlId='description'>
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -84,8 +84,8 @@ function BookForm() {
           </Form.Group>
         </Row>
 
-        <Row>
-          <Col>
+        <Row className='py-3'>
+          <Col className='d-flex justify-content-end align-items-center'>
             <Form.Check
               // prettier-ignore
               type='checkbox'
@@ -93,10 +93,8 @@ function BookForm() {
               label='Is Active?'
             ></Form.Check>
           </Col>
-          <Col>
-            <Button className='mb-4' type='submit'>
-              Add Book
-            </Button>
+          <Col className='d-flex align-items-center'>
+            <Button type='submit'>Add Book</Button>
           </Col>
         </Row>
       </Form>
