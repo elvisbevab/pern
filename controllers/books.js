@@ -65,3 +65,18 @@ export const createBook = async (req, res) => {
     res.status(500).send('something went wrong');
   }
 };
+
+export const deleteBook = async (req, res) => {
+  try {
+    console.log('deleteBook');
+    const { rows, rowCount } = await pool.query(
+      'DELETE FROM books WHERE id=$1',
+      [req.params.id]
+    );
+    // console.log(rows);
+    res.status(200).json(rows[0]);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send('something went wrong');
+  }
+};
