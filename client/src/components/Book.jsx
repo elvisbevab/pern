@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getApiData } from '../client';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import { deleteBook } from '../client';
 
 function Book() {
@@ -33,14 +33,25 @@ function Book() {
       )
   );
   return (
-    <>
-      <table>
-        <tbody>{booksTable}</tbody>
-      </table>
-      <Button className='my-4' variant='danger' onClick={handleDeleteButton}>
-        DELETE
-      </Button>
-    </>
+    <Container className='book-container'>
+      <Row className='book d-flex justify-content-around'>
+        <Col className='text-center' md='4'>
+          <h2>{book.title}</h2>
+          <h4>Written by: {book.author}</h4>
+          <p>{book.description}</p>
+          <Button
+            className='my-4'
+            variant='danger'
+            onClick={handleDeleteButton}
+          >
+            DELETE
+          </Button>
+        </Col>
+        <Col className='h-100 d-flex' md='4'>
+          <img className='book-img' src={book.cover_url} alt='' />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
