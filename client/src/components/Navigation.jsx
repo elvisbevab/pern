@@ -11,9 +11,6 @@ function Navigation() {
         <li>
           <a href='/books'>Books</a>
         </li>
-        <li>
-          <a href='/create'>Create</a>
-        </li>
       </ul>
     </div>
   );

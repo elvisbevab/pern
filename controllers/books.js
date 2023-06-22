@@ -73,7 +73,7 @@ export const deleteBook = async (req, res) => {
       'DELETE FROM books WHERE id=$1',
       [req.params.id]
     );
-    // console.log(rows);
+    console.log(rows);
     res.status(200).json(rows[0]);
   } catch (error) {
     console.log(error.message);

@@ -95,7 +95,7 @@ function BookForm() {
           </Col>
           <Col>
             <Button className='mb-4' type='submit'>
-              Submit Form
+              Add Book
             </Button>
           </Col>
         </Row>
