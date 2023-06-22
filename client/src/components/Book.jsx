@@ -33,21 +33,35 @@ function Book() {
       )
   );
   return (
-    <Container className='book-container'>
+    <Container className='book-container d-flex justify-content-center align-items-center'>
       <Row className='book d-flex justify-content-around'>
-        <Col className='text-center' md='4'>
-          <h2>{book.title}</h2>
-          <h4>Written by: {book.author}</h4>
-          <p>{book.description}</p>
-          <Button
-            className='my-4'
-            variant='danger'
-            onClick={handleDeleteButton}
-          >
-            DELETE
-          </Button>
+        <Col
+          className='d-flex flex-column text-center justify-content-around'
+          md='4'
+        >
+          <Row>
+            <h2 className='fs-1'>{book.title}</h2>
+            <h4>Written by: {book.author}</h4>
+          </Row>
+          <Row>
+            <p>{book.description}</p>
+          </Row>
+
+          <Row>
+            <p>Category: {book.category}</p>
+            <p>Published at: {book.publishedat}</p>
+          </Row>
+          <Row>
+            <Button
+              className='my-4 fw-bolder'
+              variant='danger'
+              onClick={handleDeleteButton}
+            >
+              DELETE
+            </Button>
+          </Row>
         </Col>
-        <Col className='h-100 d-flex' md='4'>
+        <Col className='h-100 d-flex justify-content-center' md='4'>
           <img className='book-img' src={book.cover_url} alt='' />
         </Col>
       </Row>

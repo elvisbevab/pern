@@ -21,11 +21,12 @@
 }
 
 .book-container {
-  height: 50%;
+  height: 100%;
 }
 
 .book {
-  height: 30rem;
+  height: 75%;
+  width: 100%;
 }
 
 .book-img {

@@ -11,7 +11,9 @@ function Home() {
           <Row>
             <Col className='text-center'>
               <h1 className=''>Welcome to MyLibrary</h1>
-              <Button variant='dark'> Show All Books </Button>
+              <a href='/books'>
+                <Button variant='dark'> Show All Books </Button>
+              </a>
             </Col>
           </Row>
         </Col>
