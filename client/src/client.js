@@ -29,3 +29,17 @@ export const addBook = (path, bookData) => {
       console.log(err);
     });
 };
+
+export const deleteBook = (path) => {
+  console.log('call delete Book');
+
+  axios
+    .delete(API_URL + path)
+    .then((res) => {
+      console.log(res.data);
+      console.log('Book Deleted');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
