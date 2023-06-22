@@ -22,17 +22,21 @@ function Book() {
   // console.log(`book: ${book}`);
   // console.log(`keyNames: ${keyNames}`);
 
-  const booksTable = keyNames.map((key) => (
-    <tbody>
-      <tr>
-        <td>{key}</td>
-        <td>{book[key]}</td>
-      </tr>
-    </tbody>
-  ));
+  const booksTable = keyNames.map(
+    (key) =>
+      key != 'id' &&
+      key != 'isactive' && (
+        <tr>
+          <td>{key}</td>
+          <td>{book[key]}</td>
+        </tr>
+      )
+  );
   return (
     <>
-      <table>{booksTable}</table>
+      <table>
+        <tbody>{booksTable}</tbody>
+      </table>
       <Button className='my-4' variant='danger' onClick={handleDeleteButton}>
         DELETE
       </Button>
